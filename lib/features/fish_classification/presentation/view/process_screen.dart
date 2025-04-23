@@ -2,7 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 
-import 'fish_classifier.dart';
+import '../../../../core/utils/fish_classifier.dart';
 
 class ProcessScreen extends StatefulWidget {
   final File imageFile;

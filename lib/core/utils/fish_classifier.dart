@@ -14,7 +14,7 @@ class FishClassifier {
       developer.log('Starting model loading process...');
       
       // Check if model file exists
-      final modelPath = 'assets/model/fish_classification_model.tflite';
+      const modelPath = 'assets/model/fish_classification_model.tflite';
       developer.log('Loading model from path: $modelPath');
       
       // Load model
@@ -30,7 +30,7 @@ class FishClassifier {
       
       // Load labels
       developer.log('Loading labels from metadata...');
-      final labelsPath = 'assets/model/fish_classification_model_metadata.json';
+      const labelsPath = 'assets/model/fish_classification_model_metadata.json';
       developer.log('Loading labels from path: $labelsPath');
       
       final labelsData = await rootBundle.loadString(labelsPath);
