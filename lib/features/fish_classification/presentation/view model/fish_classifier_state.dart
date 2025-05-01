@@ -23,3 +23,16 @@ final class ProcessingImageError extends FishClassifierState {
   final String errorMessage;
   ProcessingImageError({required this.errorMessage});
 }
+final class SavingCatchLoading extends LoadingState {}
+final class SavingCatchSuccess extends FishClassifierState {}
+final class SavingCatchError extends FishClassifierState {
+  final String errorMessage;
+  SavingCatchError({required this.errorMessage});
+}
+
+final class DeletingCatchLoading extends LoadingState {}
+final class DeletingCatchSuccess extends FishClassifierState {}
+final class DeletingCatchError extends FishClassifierState {
+  final String errorMessage;
+  DeletingCatchError({required this.errorMessage});
+}
