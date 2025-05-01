@@ -15,13 +15,15 @@ dependencies:
   google_fonts: ^6.1.0
   image: ^4.0.17
   image_picker: ^1.0.7
+  lottie: ^3.3.1
   path: ^1.8.3
   path_provider: ^2.1.2
+  sizer: ^3.0.5
   tflite_flutter: ^0.11.0
   wakelock_plus: ^1.3.1
 
 dev_dependencies:
-  flutter_lints: ^2.0.0
+  flutter_lints: 5.0.0
   flutter_test:
     sdk: flutter
 
@@ -31,3 +33,4 @@ flutter:
     - assets/model/fish_classification_model_metadata.json
     - assets/model/fish_classification_model.tflite
     - assets/images/
+    - assets/lottie/

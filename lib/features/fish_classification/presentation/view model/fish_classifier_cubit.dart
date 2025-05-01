@@ -6,7 +6,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
+import '../../../../core/data/fish_info.dart';
 import '../../../../core/utils/fish_classifier.dart';
+import '../../data/model/fish_model.dart';
 import '../view/widgets/results_bottom_sheet.dart';
 part 'fish_classifier_state.dart';
 
@@ -92,10 +94,23 @@ class FishClassifierCubit extends Cubit<FishClassifierState> {
       required Map<String, dynamic> result}) {
     final confidence = (result['confidence'] * 100).toStringAsFixed(2);
     final fishClass = result['class'];
+    final fish = _searchFishByName(fishClass);
     resultsBottomSheet(
         context: context,
         imageFile: imageFile,
-        fishClass: fishClass,
+        fish: fish!,
         confidence: double.parse(confidence));
+  }
+
+  Fish? _searchFishByName(String name) {
+    final fishes = fishInfo.map((json) => Fish.fromJson(json)).toList();
+    return fishes.firstWhere(
+      (fish) => fish.name.toLowerCase() == name.toLowerCase(),
+      orElse: () => Fish(
+        name: '',
+        poisonous: false,
+        popularRegions: [],
+      ),
+    );
   }
 }
