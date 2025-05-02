@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../fish_classification/presentation/view model/fish_classifier_cubit.dart';
-import '../../../fish_classification/presentation/view/camera_screen.dart';
+import '../../../fish_classification/presentation/view/camera_view.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

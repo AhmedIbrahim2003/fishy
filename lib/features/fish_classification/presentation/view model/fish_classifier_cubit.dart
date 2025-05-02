@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:fishy/core/utils/cache_helper.dart';
@@ -169,6 +170,26 @@ class FishClassifierCubit extends Cubit<FishClassifierState> {
 
       final dbHelper = DatabaseHelper.instance;
       final id = CacheHelper.getData(key: 'currentID');
+
+      // 1. Get the catch data before deleting
+      final db = await dbHelper.database;
+      final result = await db.query(
+        'saved_catchs',
+        where: 'id = ?',
+        whereArgs: [id],
+      );
+
+      if (result.isNotEmpty) {
+        final photoPath = result.first['photo_path'] as String?;
+
+        // 2. Delete the image file if it exists
+        if (photoPath != null) {
+          final file = File(photoPath);
+          if (await file.exists()) {
+            await file.delete();
+          }
+        }
+      }
       await dbHelper.deleteCatch(id);
       await CacheHelper.removeData(key: 'currentID');
       emit(DeletingCatchSuccess());

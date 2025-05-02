@@ -15,6 +15,7 @@ Future<dynamic> resultsBottomSheet(
     required double confidence}) {
   return showModalBottomSheet(
     context: context,
+    isDismissible: true,
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
     builder: (context) => BlocProvider(
