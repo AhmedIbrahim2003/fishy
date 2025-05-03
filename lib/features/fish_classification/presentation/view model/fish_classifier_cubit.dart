@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:fishy/core/utils/cache_helper.dart';
@@ -10,10 +9,10 @@ import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
-import '../../../../core/data/fish_info.dart';
+import '../../../../core/data/json/fish_info.dart';
 import '../../../../core/utils/database_helper.dart';
 import '../../../../core/utils/fish_classifier.dart';
-import '../../data/model/fish_model.dart';
+import '../../../../core/data/model/fish_model.dart';
 import '../view/widgets/results_bottom_sheet.dart';
 part 'fish_classifier_state.dart';
 

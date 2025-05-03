@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   camera: ^0.11.0+2
+  conditional_builder_null_safety: ^0.0.6
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
@@ -15,6 +16,7 @@ dependencies:
   google_fonts: ^6.1.0
   image: ^4.0.17
   image_picker: ^1.0.7
+  intl: ^0.20.2
   lottie: ^3.3.1
   path: ^1.8.3
   path_provider: ^2.1.2

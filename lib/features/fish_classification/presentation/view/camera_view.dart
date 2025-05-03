@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sizer/sizer.dart';
+import '../../../history/presentation/view/history_view.dart';
 import '../view model/fish_classifier_cubit.dart';
 
 class CameraScreen extends StatelessWidget {
@@ -21,6 +23,23 @@ class CameraScreen extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
+            actions: [
+              IconButton(
+                icon: Icon(
+                  Icons.history,
+                  size: 22.sp,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HistoryView(),
+                    ),
+                  );
+                },
+              ),
+            ],
             flexibleSpace: Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -54,8 +73,8 @@ class CameraScreen extends StatelessWidget {
                     child: AspectRatio(
                       aspectRatio: deviceRatio,
                       child: Transform.scale(
-                        scale:
-                            1 / (cubit.controller!.value.aspectRatio * deviceRatio),
+                        scale: 1 /
+                            (cubit.controller!.value.aspectRatio * deviceRatio),
                         child: Center(
                           child: CameraPreview(cubit.controller!),
                         ),
@@ -77,7 +96,6 @@ class CameraScreen extends StatelessWidget {
               else
                 const Center(child: CircularProgressIndicator()),
 
-              // Gradient overlay at the bottom
               Positioned(
                 left: 0,
                 right: 0,

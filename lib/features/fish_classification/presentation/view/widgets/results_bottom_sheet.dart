@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:ui';
 
-import 'package:fishy/features/fish_classification/data/model/fish_model.dart';
+import 'package:fishy/core/data/model/fish_model.dart';
 import 'package:fishy/features/fish_classification/presentation/view%20model/fish_classifier_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -194,6 +194,7 @@ Future<dynamic> resultsBottomSheet(
                                 color: Colors.amber,
                               )
                             : Icon(Icons.turned_in_not)),
+                    const SizedBox(height: 16),
                   ],
                 ),
               ],
