@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../core/data/json/fish_info.dart';
-import '../../../../core/utils/cache_helper.dart';
 import '../../../../core/utils/database_helper.dart';
 import '../../../../core/data/model/fish_model.dart';
 import '../../data/models/catch_day_model.dart';
