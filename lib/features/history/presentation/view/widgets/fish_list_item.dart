@@ -53,7 +53,10 @@ class FishListItem extends StatelessWidget {
             ),
             Text(
               'Fish Type: ${catchItem.fishName}',
-              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500),
+              style: TextStyle(
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.blueAccent),
             ),
             Text(
               'Time of the catch: ${cubit.getTimeOnly(catchItem.timestamp)}',

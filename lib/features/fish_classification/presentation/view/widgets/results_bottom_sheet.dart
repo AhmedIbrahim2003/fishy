@@ -8,6 +8,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../recipes/presentation/view model/recipe_cubit.dart';
+import '../../../../recipes/presentation/view/choose_recipes_view.dart';
+
 Future<dynamic> resultsBottomSheet(
     {required BuildContext context,
     required File? imageFile,
@@ -164,36 +167,78 @@ Future<dynamic> resultsBottomSheet(
                         ),
                       ),
                     ),
-                    ElevatedButton(
-                        onPressed: () async {
-                          if (isSaved) {
-                            await cubit.deleteCatch();
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Catch deleted successfully'),
-                                backgroundColor: Colors.red,
-                              ),
-                            );
-                          } else {
-                            await cubit.saveCatch(
-                              fishName: fish.name,
-                              photoPath: imageFile!.path,
-                              confidence: confidence,
-                            );
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Catch saved successfully'),
-                                backgroundColor: Colors.green,
-                              ),
-                            );
-                          }
-                        },
-                        child: isSaved
-                            ? Icon(
-                                Icons.turned_in,
-                                color: Colors.amber,
-                              )
-                            : Icon(Icons.turned_in_not)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      spacing: 15,
+                      children: [
+                        ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              minimumSize: const Size(250, 40),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => BlocProvider(
+                                    create: (context) =>
+                                        RecipeCubit(fishName: fish.name),
+                                    child: const ChooseRecipesView(),
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ImageIcon(
+                                  AssetImage("assets/icons/recipe_icon.png"),
+                                  color: Colors.blueAccent,
+                                  size: 20.sp,
+                                ),
+                                const SizedBox(width: 8),
+                                Text(
+                                  'Discover Recipes',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleLarge!
+                                      .copyWith(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.blueAccent),
+                                ),
+                              ],
+                            )),
+                        ElevatedButton(
+                            onPressed: () async {
+                              if (isSaved) {
+                                await cubit.deleteCatch();
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Catch deleted successfully'),
+                                    backgroundColor: Colors.red,
+                                  ),
+                                );
+                              } else {
+                                await cubit.saveCatch(
+                                  fishName: fish.name,
+                                  photoPath: imageFile!.path,
+                                  confidence: confidence,
+                                );
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Catch saved successfully'),
+                                    backgroundColor: Colors.green,
+                                  ),
+                                );
+                              }
+                            },
+                            child: isSaved
+                                ? Icon(
+                                    Icons.turned_in,
+                                    color: Colors.amber,
+                                  )
+                                : Icon(Icons.turned_in_not)),
+                      ],
+                    ),
                     const SizedBox(height: 16),
                   ],
                 ),

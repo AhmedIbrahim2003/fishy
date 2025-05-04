@@ -2,10 +2,13 @@ import 'dart:io';
 import 'dart:ui';
 
 import 'package:fishy/core/data/model/fish_model.dart';
+import 'package:fishy/features/recipes/presentation/view%20model/recipe_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../recipes/presentation/view/choose_recipes_view.dart';
 import '../../../data/models/catch_model.dart';
 import '../../view model/history_cubit.dart';
 
@@ -152,18 +155,64 @@ Future<dynamic> detailsBottomSheet({
                   ),
                 ),
               ),
-              ElevatedButton(
-                  onPressed: () {
-                    cubit.deleteCatch(
-                      context: context,
-                      id: fishCatch.id,
-                      photoPath: fishCatch.photoPath,
-                    );
-                  },
-                  child: Icon(
-                    Icons.delete,
-                    color: Colors.red,
-                  )),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                spacing: 15,
+                children: [
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(250, 40),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BlocProvider(
+                              create: (context) =>
+                                  RecipeCubit(fishName: fishType.name),
+                              child: const ChooseRecipesView(),
+                            ),
+                          ),
+                        );
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ImageIcon(
+                            AssetImage("assets/icons/recipe_icon.png"),
+                            color: Colors.blueAccent,
+                            size: 20.sp,
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            'Discover Recipes',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge!
+                                .copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.blueAccent),
+                          ),
+                        ],
+                      )),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                    ),
+                    onPressed: () {
+                      cubit.deleteCatch(
+                        context: context,
+                        id: fishCatch.id,
+                        photoPath: fishCatch.photoPath,
+                      );
+                    },
+                    child: Icon(
+                      Icons.delete,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
               const SizedBox(height: 16),
             ],
           ),

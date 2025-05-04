@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:fishy/features/history/presentation/view/widgets/results_bottom_sheet.dart';
+import 'package:fishy/features/history/presentation/view/widgets/details_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';

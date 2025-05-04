@@ -38,3 +38,4 @@ flutter:
     - assets/model/fish_classification_model.tflite
     - assets/images/
     - assets/lottie/
+    - assets/icons/

@@ -22,7 +22,10 @@ class DayCategory extends StatelessWidget {
       children: [
         Text(
           catchDay.date,
-          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w500),
+          style: TextStyle(
+            fontSize: 20.sp,
+            fontWeight: FontWeight.w900,
+          ),
         ),
         ...catchDay.catches.map((catchItem) {
           return FishListItem(cubit: cubit, catchItem: catchItem);

@@ -14,9 +14,12 @@ class HistoryView extends StatelessWidget {
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
+          foregroundColor: Colors.blueAccent,
           title: const Text(
             'Your Catch History',
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         body: BlocBuilder<HistoryCubit, HistoryState>(
