@@ -29,7 +29,6 @@ class _ProcessScreenState extends State<ProcessScreen> {
 
   Future<void> _processImage() async {
     try {
-      // Simulate image processing
       var analysis = await FishClassifier().classifyImage(widget.imageFile);
       log(analysis.toString());
       setState(() {

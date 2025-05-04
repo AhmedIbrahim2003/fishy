@@ -120,12 +120,15 @@ class RecipeView extends StatelessWidget {
                           itemBuilder: (_, index) {
                             return Row(
                               children: [
-                                Text(
-                                  "- ${recipe.ingredients![index]}",
-                                  style: TextStyle(
-                                    fontSize: 16.sp,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600,
+                                SizedBox(
+                                  width: 86.w,
+                                  child: Text(
+                                    "- ${recipe.ingredients![index]}",
+                                    style: TextStyle(
+                                      fontSize: 16.sp,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                                 ),
                               ],

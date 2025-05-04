@@ -1,9 +1,9 @@
 import 'dart:math';
+import 'package:fishy/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../fish_classification/presentation/view model/fish_classifier_cubit.dart';
-import '../../../fish_classification/presentation/view/camera_view.dart';
+import '../../../../core/utils/cache_helper.dart';
+import '../../../home/presentation/view/home_view.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -26,7 +26,6 @@ class _SplashScreenState extends State<SplashScreen>
       duration: const Duration(seconds: 4),
     );
 
-    // Create bubbles
     for (int i = 0; i < 30; i++) {
       _bubbles.add(Bubble(
         x: _random.nextDouble(),
@@ -37,14 +36,12 @@ class _SplashScreenState extends State<SplashScreen>
       ));
     }
 
-    _controller.forward().then((_) {
+    _controller.forward().then((_) async {
+      var isFirstTimeOpen = await CacheHelper.getData(key: 'isFirstTimeOpen')?? true;
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) => FishClassifierCubit()..initCamera(),
-            child: const CameraScreen(),
-          ),
+          builder: (context) => isFirstTimeOpen ? OnboardingView() : HomeView(),
         ),
       );
     });
@@ -62,7 +59,6 @@ class _SplashScreenState extends State<SplashScreen>
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // Animated bubbles
           ..._bubbles.map((bubble) => AnimatedBuilder(
                 animation: _controller,
                 builder: (context, child) {
@@ -92,22 +88,24 @@ class _SplashScreenState extends State<SplashScreen>
                 },
               )),
 
-          // Logo and text
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  'assets/images/fishy_logo.png',
-                  width: 100,
-                  height: 100,
+                Hero(
+                  tag: 'logo',
+                  child: Image.asset(
+                    'assets/images/fishy_logo.png',
+                    width: 100,
+                    height: 100,
+                  ),
                 ),
                 Text(
                   'Fishy',
                   style: GoogleFonts.quicksand(
                     fontSize: 52,
                     fontWeight: FontWeight.w800,
-                    color: const Color(0xFF0D47A1), // Deep blue color
+                    color: const Color(0xFF0D47A1), 
                     letterSpacing: 1.2,
                   ),
                 ),

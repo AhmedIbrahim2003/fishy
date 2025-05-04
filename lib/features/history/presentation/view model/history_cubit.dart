@@ -38,14 +38,12 @@ class HistoryCubit extends Cubit<HistoryState> {
       }
 
       List<CatchDay> groupedList = grouped.entries.map((entry) {
-        // Sort the catches in each date group by timestamp descending
         entry.value.sort((a, b) =>
             DateTime.parse(b.timestamp).compareTo(DateTime.parse(a.timestamp)));
 
         return CatchDay(date: entry.key, catches: entry.value);
       }).toList();
 
-      // Sort groups by date descending (newest first)
       groupedList.sort(
           (a, b) => DateTime.parse(b.date).compareTo(DateTime.parse(a.date)));
 

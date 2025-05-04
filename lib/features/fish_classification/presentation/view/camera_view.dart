@@ -12,7 +12,6 @@ class CameraScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final deviceRatio = size.width / size.height;
-
     return BlocConsumer<FishClassifierCubit, FishClassifierState>(
       listener: (context, state) {},
       builder: (context, state) {
@@ -22,13 +21,13 @@ class CameraScreen extends StatelessWidget {
           extendBodyBehindAppBar: true,
           appBar: AppBar(
             backgroundColor: Colors.transparent,
+            foregroundColor: Colors.white,
             elevation: 0,
             actions: [
               IconButton(
                 icon: Icon(
                   Icons.history,
                   size: 22.sp,
-                  color: Colors.white,
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -55,8 +54,8 @@ class CameraScreen extends StatelessWidget {
             title: Text(
               'Take a Photo',
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    color: Colors.white,
                     fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
             ),
             bottom: PreferredSize(
@@ -117,7 +116,6 @@ class CameraScreen extends StatelessWidget {
                 ),
               ),
 
-              // Camera controls with instruction text
               Positioned(
                 left: 0,
                 right: 0,
@@ -135,7 +133,6 @@ class CameraScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        // Gallery button
                         Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -151,7 +148,6 @@ class CameraScreen extends StatelessWidget {
                             padding: const EdgeInsets.all(12),
                           ),
                         ),
-                        // Take photo button
                         GestureDetector(
                           onTap: () => cubit.takePicture(context: context),
                           child: Container(
@@ -177,7 +173,6 @@ class CameraScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        // Placeholder for symmetry
                         const SizedBox(width: 56),
                       ],
                     ),
@@ -185,7 +180,6 @@ class CameraScreen extends StatelessWidget {
                 ),
               ),
 
-              // Processing overlay
               if (state is ProcessingImageLoading)
                 Container(
                   color: Colors.black54,

@@ -39,7 +39,6 @@ class Recipe {
     return data;
   }
 
-  //tostring
   @override
   String toString() {
     return 'Recipe{id: $id, name: $name, origin: $origin, photo: $photo, difficulty: $difficulty, ingredients: $ingredients, instructions: $instructions}';

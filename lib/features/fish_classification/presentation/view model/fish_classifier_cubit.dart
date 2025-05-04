@@ -170,7 +170,6 @@ class FishClassifierCubit extends Cubit<FishClassifierState> {
       final dbHelper = DatabaseHelper.instance;
       final id = CacheHelper.getData(key: 'currentID');
 
-      // 1. Get the catch data before deleting
       final db = await dbHelper.database;
       final result = await db.query(
         'saved_catchs',
@@ -181,7 +180,6 @@ class FishClassifierCubit extends Cubit<FishClassifierState> {
       if (result.isNotEmpty) {
         final photoPath = result.first['photo_path'] as String?;
 
-        // 2. Delete the image file if it exists
         if (photoPath != null) {
           final file = File(photoPath);
           if (await file.exists()) {
@@ -200,7 +198,6 @@ class FishClassifierCubit extends Cubit<FishClassifierState> {
     }
   }
 
-  //check if the catch is saved or not
   bool isCatchSaved() {
     final id = CacheHelper.getData(key: 'currentID');
     return id != null;

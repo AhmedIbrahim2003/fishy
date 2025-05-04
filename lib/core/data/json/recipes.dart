@@ -1,6 +1,7 @@
 final List<Map<String, dynamic>> recipesJson = [
   {
     "name": "Black Sea Sprat",
+    "photo":"https://c8.alamy.com/comp/F191CF/fresh-raw-sprat-over-two-slices-of-lemon-F191CF.jpg",
     "recipe": [
       {
         "id": 1,
@@ -132,6 +133,7 @@ final List<Map<String, dynamic>> recipesJson = [
   },
   {
     "name": "Gilt-Head Bream",
+    "photo":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHYa1SjEGkYzBadEkGNe123kT9VMg6EvMyhg&s",
     "recipe": [
       {
         "id": 1,
@@ -340,6 +342,7 @@ final List<Map<String, dynamic>> recipesJson = [
   },
   {
     "name": "Hourse Mackerel",
+    "photo":"https://upload.wikimedia.org/wikipedia/commons/d/d9/MaAji.jpg",
     "recipe": [
       {
         "id": 1,
@@ -574,6 +577,7 @@ final List<Map<String, dynamic>> recipesJson = [
   },
   {
     "name": "Red Mullet",
+    "photo":"https://bouyagegroup.com/cdn/shop/products/image_0d0edd64-63ce-4bff-8761-4d2c39992a5b.jpg?v=1641122876",
     "recipe": [
       {
         "id": 1,
@@ -801,6 +805,7 @@ final List<Map<String, dynamic>> recipesJson = [
   },
   {
     "name": "Red Sea Bream",
+    "photo":"https://japan-food.jetro.go.jp/assets/10531001387.jpg",
     "recipe": [
       {
         "id": 1,
@@ -929,6 +934,7 @@ final List<Map<String, dynamic>> recipesJson = [
   },
   {
     "name": "Sea Bass",
+    "photo":"https://cdn.britannica.com/43/9443-050-5D22A052/Black-sea-bass.jpg",
     "recipe": [
       {
         "id": 1,
@@ -1065,6 +1071,7 @@ final List<Map<String, dynamic>> recipesJson = [
   },
   {
     "name": "Shrimp",
+    "photo":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT99KbUcqFDI2FRuoEAq6TBGKPzzI7fdQ7VrQ&s",
     "recipe": [
       {
         "id": 1,
@@ -1184,6 +1191,7 @@ final List<Map<String, dynamic>> recipesJson = [
   },
   {
     "name": "Striped Red Mullet",
+    "photo":"https://www.aquariumbcn.com/wp-content/uploads/2022/08/Mullus-surmuletus.jpg",
     "recipe": [
       {
         "id": 1,
@@ -1292,6 +1300,7 @@ final List<Map<String, dynamic>> recipesJson = [
   },
   {
     "name": "Trout",
+    "photo":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTWbrniwARjPV3oEOr5pC6XQErMyQnUdjXig&s",
     "recipe": [
       {
         "id": 1,

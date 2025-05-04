@@ -52,7 +52,7 @@ class DatabaseHelper {
     });
     _printAllCatches();
     log(id.toString());
-    return id; // This is the ID of the inserted row
+    return id; 
   }
 
   Future<int> deleteCatch(int id) async {
@@ -82,7 +82,7 @@ class DatabaseHelper {
     final List<Map<String, dynamic>> results = await db.query('saved_catchs');
 
     for (var row in results) {
-      log(row.toString()); // each row is a map: {id: 1, fish_name: ..., photo_path: ...}
+      log(row.toString());
     }
   }
 }

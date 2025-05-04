@@ -13,22 +13,18 @@ class FishClassifier {
     try {
       developer.log('Starting model loading process...');
       
-      // Check if model file exists
       const modelPath = 'assets/model/fish_classification_model.tflite';
       developer.log('Loading model from path: $modelPath');
       
-      // Load model
       developer.log('Creating TFLite interpreter...');
       _interpreter = await Interpreter.fromAsset(modelPath);
       developer.log('TFLite interpreter created successfully');
       
-      // Get model details
       final inputShape = _interpreter!.getInputTensor(0).shape;
       final outputShape = _interpreter!.getOutputTensor(0).shape;
       developer.log('Model input shape: $inputShape');
       developer.log('Model output shape: $outputShape');
       
-      // Load labels
       developer.log('Loading labels from metadata...');
       const labelsPath = 'assets/model/fish_classification_model_metadata.json';
       developer.log('Loading labels from path: $labelsPath');
@@ -57,11 +53,9 @@ class FishClassifier {
         await loadModel();
       }
       
-      // Check if file exists and get its size
       developer.log('Reading image file: ${imageFile.path}');
       developer.log('Image file size: ${imageFile.lengthSync()} bytes');
       
-      // Read and decode image
       developer.log('Decoding image...');
       final bytes = imageFile.readAsBytesSync();
       developer.log('Image bytes read: ${bytes.length} bytes');
@@ -72,12 +66,10 @@ class FishClassifier {
       }
       developer.log('Image decoded successfully: ${image.width}x${image.height}');
       
-      // Resize image
       developer.log('Resizing image to 224x224...');
       img.Image resizedImage = img.copyResize(image, width: 224, height: 224);
       developer.log('Image resized successfully');
       
-      // Convert to float array and normalize
       developer.log('Converting image to tensor...');
       var input = List.filled(1 * 224 * 224 * 3, 0.0).reshape([1, 224, 224, 3]);
       
@@ -92,22 +84,18 @@ class FishClassifier {
       }
       developer.log('Image converted to tensor successfully');
       
-      // Prepare output tensor
       developer.log('Preparing output tensor...');
       List<List<double>> output = List.generate(
         1, (_) => List<double>.filled(_labels!.length, 0.0)
       );
       
-      // Run inference
       developer.log('Running inference...');
       _interpreter!.run(input, output);
       developer.log('Inference completed successfully');
       
-      // Process results
       developer.log('Processing results...');
       List<double> probabilities = output[0];
       
-      // Find the category with highest confidence
       int maxIndex = 0;
       double maxProb = probabilities[0];
       
@@ -121,7 +109,6 @@ class FishClassifier {
       developer.log('Classification complete');
       developer.log('Top result: ${_labels![maxIndex]} (${maxProb.toStringAsFixed(4)})');
       
-      // Log top 3 results
       var sortedIndices = List<int>.generate(probabilities.length, (i) => i)
         ..sort((a, b) => probabilities[b].compareTo(probabilities[a]));
       

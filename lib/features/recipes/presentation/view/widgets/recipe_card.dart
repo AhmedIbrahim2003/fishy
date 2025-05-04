@@ -97,7 +97,6 @@ class RecipeCard extends StatelessWidget {
                         height: 1.h,
                         child: ListView.builder(
                           itemBuilder: (_, index) {
-                            //circules
                             return Container(
                               width: 1.5.h,
                               height: 1.5.h,
@@ -124,42 +123,3 @@ class RecipeCard extends StatelessWidget {
     );
   }
 }
-// Column(
-//             crossAxisAlignment: CrossAxisAlignment.center,
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children: [
-//               SizedBox(
-//                 height: 12.h,
-//                 child: Image.network(
-//                   recipe.photo!,
-//                   fit: BoxFit.cover,
-//                   loadingBuilder: (context, child, loadingProgress) {
-//                     if (loadingProgress == null) return child;
-//                     return Center(
-//                       child: CircularProgressIndicator(
-//                         value: loadingProgress.expectedTotalBytes != null
-//                             ? loadingProgress.cumulativeBytesLoaded /
-//                                 (loadingProgress.expectedTotalBytes ?? 1)
-//                             : null,
-//                       ),
-//                     );
-//                   },
-//                   errorBuilder: (context, error, stackTrace) {
-//                     return const Icon(Icons.error);
-//                   },
-//                 ),
-//               ),
-              
-//               Text(
-//                 recipe.name!,
-//                 style: TextStyle(
-//                   fontSize: 16.sp,
-//                   fontWeight: FontWeight.bold,
-//                   overflow: TextOverflow.ellipsis,
-//                 ),
-//                 textAlign: TextAlign.center,
-//                 maxLines: 3,
-//               ),
-//             ],
-//           ),
-        
