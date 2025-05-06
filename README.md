@@ -46,6 +46,26 @@ Fishy is a Flutter-powered offline mobile application that uses AI to identify f
       <td align="center" width="20%"><img src="https://drive.google.com/uc?export=view&id=1PEROQhoX5_gS1UiYyLFM-q8B3vc_crUE" width="200"></td>
       <td align="center" width="20%"><img src="https://drive.google.com/uc?export=view&id=1sOeeBtIMMOYLiockN8ypxcKDT_JG2oeI" width="200"></td>
     </tr>
+     <tr>
+      <td align="center">Classification Results</td>
+      <td align="center">Recipes</td>
+      <td align="center">Recipe Details</td>
+      <td align="center">History</td>
+      <td align="center">Fish Library</td>
+    </tr>
+    <tr>
+      <td align="center" width="20%"><img src="https://drive.google.com/uc?export=view&id=1xHgcrWsW0FU1UlWTcEJpXkWzLrAzT3-k" width="200"></td>
+      <td align="center" width="20%"><img src="https://drive.google.com/uc?export=view&id=1YSnGrxVXvJOi6qkKWcnDBwBzl6QIaXPX" width="200"></td>
+      <td align="center" width="20%"><img src="https://drive.google.com/uc?export=view&id=1rhMdJow7DAIlYMHiuIR5MHBWbZRZp9fi" width="200"></td>
+      <td align="center" width="20%"><img src="https://drive.google.com/uc?export=view&id=1PEROQhoX5_gS1UiYyLFM-q8B3vc_crUE" width="200"></td>
+      <td align="center" width="20%"><img src="https://drive.google.com/uc?export=view&id=1sOeeBtIMMOYLiockN8ypxcKDT_JG2oeI" width="200"></td>
+    </tr>
+     <tr>
+      <td align="center">Fish Library</td>
+    </tr>
+    <tr>
+      <td align="center" width="20%"><img src="https://drive.google.com/uc?export=view&id=1sOeeBtIMMOYLiockN8ypxcKDT_JG2oeI" width="200"></td>
+    </tr>
   </table>
 </div>
 
